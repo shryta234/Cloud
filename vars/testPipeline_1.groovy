@@ -7,11 +7,17 @@ def call(body) {
 
 pipeline {
 agent any
-  parameters {
-                    string(name:'user', defaultValue: 'John', description: 'Username of the user pressing Ok')
-                    }
+
 stages {
   stage ('build') {
+    
+    input{
+          message "Press Ok to continue"
+          submitter "user1,user2"
+          parameters {
+          string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
+          }
+          }
                     steps { 
                     echo "User: ${user} said Ok."
                     }
