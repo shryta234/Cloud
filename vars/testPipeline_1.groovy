@@ -15,6 +15,7 @@ stages {
                     steps { 
                     echo "User: ${user} said Ok."
                     }
+  }
     
     stage ('completed'){
       
@@ -22,7 +23,6 @@ stages {
         echo "BYE!"
       }
     }
-}
 }
 }
 
