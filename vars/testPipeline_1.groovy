@@ -5,31 +5,17 @@ def call(body) {
   body.delegate = config
   body()
 
+
 pipeline {
 agent any
-
+environment {
+OUTPUT_PATH = './outputs/'
+}
 stages {
-  stage ('build') {
-    
-    input{
-          message "Press Ok to continue"
-          submitter "user1"
-          parameters {
-          string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
-          }
-          }
-                    steps { 
-                    echo "User: ${user} said Ok."
-                    }
-  }
-    
-    stage ('completed'){
-      
-      steps{
-        echo "BYE!"
-      }
-    }
+stage ('build') {
+...
+}
+...
 }
 }
-
 }
