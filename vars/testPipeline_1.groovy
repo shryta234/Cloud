@@ -5,31 +5,29 @@ def call(body) {
   body.delegate = config
   body()
 
-
-
-
 pipeline {
-    agent any
-    tools { 
-        maven 'Maven 3.3.9' 
-        jdk 'jdk8' 
+agent any
+stages {
+  stage ('build') {
+              input{
+                    message "Press Ok to continue"
+                    submitter "user1,user2"
+                    parameters {
+                    string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
+                    }
+                   }
+                    steps { 
+                    echo "User: ${username} said Ok."
+                    }
+    
+    stage ('completed'){
+      
+      steps{
+        echo "BYE!"
+      }
     }
-    stages {
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
-            }
-        }
-
-        stage ('Build') {
-            steps {
-                echo 'This is a minimal pipeline.'
-            }
-        }
-    }
+}
+}
 }
 
 }
