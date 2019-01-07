@@ -13,7 +13,7 @@ pipeline {
  stages {
   stage('Trigger pipeline') {
    steps {
-    echo "Pipeline triggered by ${params.USER}"
+    echo "Pipeline triggered by ${defaultValue}"
    }
   }
  }
