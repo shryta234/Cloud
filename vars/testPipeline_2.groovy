@@ -38,7 +38,12 @@ pipeline {
                            }
                            }
                             stage('Integration test') {
-                             
+                              agent {
+                                    docker {
+                                            reuseNode true
+                                            image 'ubuntu'
+                                           }
+                                    }
                               steps {
                                 echo "Running the integration test..."
                               }
@@ -47,4 +52,19 @@ pipeline {
                            }
               }
 }
+  
+  
+  
+  
+  post {
+    failure {
+        mail to: 'shryta234@gmail.com',
+             subject: "Failed Pipeline",
+             body: "Something is wrong with Build"
+    }
+}
+  
+  
+  
+  
 }
