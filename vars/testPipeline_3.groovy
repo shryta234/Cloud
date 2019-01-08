@@ -11,16 +11,18 @@ def call(body) {
    stages{
         stage ('clone source code'){		
 				steps{
-					bat 'cd ..'
-					bat 'del pipeline_declarative'
-					bat 'y'
+					
 			    //git  'https://github.com/shryta234/CloudBees.git'
 			   //bat'del random.txt' 
 			   // bat 'y'
 			    bat 'dir >> random.txt'
 			    bat 'type random.txt'
-			   // def name = type random.txt
-			   // if (name == 'CloudBees') { echo 'successfully cloned'}
+					script {
+					  def name = type random.txt
+					   if (name == 'Jenkinsfile') { 
+						   echo 'successfully cloned'
+					   			    }
+					       }
 				     }
                                    }
     
