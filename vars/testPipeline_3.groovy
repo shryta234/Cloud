@@ -11,6 +11,7 @@ def call(body) {
    stages{
         stage ('clone source code'){		
 				steps{
+					bat 'cd ..'
 					bat 'del pipeline_declarative'
 					bat 'y'
 			    //git  'https://github.com/shryta234/CloudBees.git'
