@@ -12,9 +12,10 @@ def call(body) {
         stage ('clone source code'){		
 				steps{
 			    git  'https://github.com/shryta234/CloudBees.git'
-			   // bat'del random.txt' 
+			   //bat'del random.txt' 
 			   // bat 'y'
-			   // bat 'dir >> random.txt'
+			    bat 'dir >> random.txt'
+			    bat 'type random.txt'
 			   // def name = type random.txt
 			   // if (name == 'CloudBees') { echo 'successfully cloned'}
 				     }
