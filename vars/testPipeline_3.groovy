@@ -19,7 +19,7 @@ def call(body) {
 			    bat 'type random.txt'
 					script {
 					  def name = type random.txt
-					   if (name == 'Jenkinsfile') { 
+						if ( ${name} == 'Jenkinsfile') { 
 						   echo 'successfully cloned'
 					   			    }
 					       }
