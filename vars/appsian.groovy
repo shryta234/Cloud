@@ -18,8 +18,10 @@ pipeline {
    stages{
         stage ('clone source code'){		
 				steps{
-	          echo 'Appsian cloned source code'
-		 echo "${DB_ENGINE}"
+	          			echo 'Appsian cloned source code'
+					echo "${DB_ENGINE}"
+					echo params.buildType
+					
 				     }
                                    }
     
