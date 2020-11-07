@@ -9,8 +9,12 @@ pipeline {
 	environment {
         DISABLE_AUTH = 'qwerty'
         DB_ENGINE    = 'sqlite'
- 
                     }
+	parameters {
+     	choice choices: config.bType, description: '', name: 'buildType'
+      	choice choices: config.buildServer, description: '', name: 'server'
+      
+    		    }
    stages{
         stage ('clone source code'){		
 				steps{
