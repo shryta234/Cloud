@@ -4,18 +4,18 @@ pipeline {
    stages{
         stage ('clone source code'){		
 				steps{
-	          echo 'cloned source code'
+	          echo 'Appsian cloned source code'
 				     }
                                    }
     
       stage ('compress to .zip'){
 				steps{
-					echo '.zip'
+					echo 'Appsian .zip'
 				     }
 				                        }    
       stage ('deploy') {
 				steps {
-					echo 'deployed'
+					echo 'Appsian deployed'
 				      }
 			                  }
    
