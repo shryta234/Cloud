@@ -33,7 +33,11 @@ pipeline {
 				}    
       stage ('deploy') {
 			steps {
-				echo 'Appsian deployed'
+				script{
+					echo 'Appsian deployed'
+					echo 'Downstream job triggering'
+					build(job: 'pip3')
+				}
 			      }
 		       }
    
